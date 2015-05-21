@@ -1,8 +1,31 @@
-var moviesApp = angular.module('moviesApp', []);
+// --------------------------------------------------------------------------
+// * Define Module
+// --------------------------------------------------------------------------
+var moviesApp = angular.module('moviesApp', ['ngRoute']);
 
-moviesApp.controller('searchController', ['$scope', '$http', function($scope, $http) {
+// --------------------------------------------------------------------------
+// * Configure Routes
+// --------------------------------------------------------------------------
+moviesApp.config(function($routeProvider) {
 
-  $scope.searchTerm = '';
+  $routeProvider
+    .when('/', {
+      templateUrl: '/pages/results.html',
+      controller: 'searchController'
+    })
+    .when('/details', {
+      templateUrl: '/pages/details.html',
+      controller: 'detailsController'
+    });
+
+});
+
+// --------------------------------------------------------------------------
+// * Define Controllers
+// --------------------------------------------------------------------------
+moviesApp.controller('searchController', ['$scope', '$http', '$log', function($scope, $http, $log) {
+
+  $scope.searchTerm = 'Mad Max';
 
   // * Main Search Function
   $scope.search = function() {
@@ -19,5 +42,14 @@ moviesApp.controller('searchController', ['$scope', '$http', function($scope, $h
     });
 
   };
+
+  // * Auto-search on load
+  $scope.search();
+
+}]);
+
+moviesApp.controller('detailsController', ['$scope', '$http', '$log', function($scope, $http, $log) {
+
+  $scope.test = '42';
 
 }]);
