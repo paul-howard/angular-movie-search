@@ -10,7 +10,7 @@
     <tr ng-repeat="movie in movies.Search">
       <td>{{ movie.Title }}</td>
       <td>{{ movie.Year }}</td>
-      <td><a href="#/details" class="btn btn-small btn-primary">Details</a></td>
+      <td><a href="#/details/{{ movie.imdbID }}" class="btn btn-small btn-primary">Details</a></td>
     </tr>
   </tbody>
 </table>

@@ -13,7 +13,7 @@ moviesApp.config(function($routeProvider) {
       templateUrl: '/pages/results.html',
       controller: 'searchController'
     })
-    .when('/details', {
+    .when('/details/:id', {
       templateUrl: '/pages/details.html',
       controller: 'detailsController'
     });
@@ -48,8 +48,19 @@ moviesApp.controller('searchController', ['$scope', '$http', '$log', function($s
 
 }]);
 
-moviesApp.controller('detailsController', ['$scope', '$http', '$log', function($scope, $http, $log) {
+moviesApp.controller('detailsController', ['$scope', '$http', '$log', '$routeParams', function($scope, $http, $log, $routeParams) {
 
-  $scope.test = '42';
+  $scope.id = $routeParams.id;
+
+  var req = {
+        url: 'http://www.omdbapi.com',
+        params: {
+          i: $scope.id
+        }
+      };
+
+  $http(req).success(function(result) {
+    $scope.json   = result;
+  });
 
 }]);
