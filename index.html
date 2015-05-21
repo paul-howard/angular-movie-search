@@ -16,10 +16,11 @@
     <div class="row" ng-controller='searchController'>
       <div class="col-xs-12">
         <h1>Angular Movies</h1>
-        <form class="form">
+        <form class="form" ng-submit="search()">
           <input type="text" class="form-control" ng-model="searchTerm">
         </form>
-        {{ searchTerm }}
+        {{ searchTerm }} <br>
+        {{ movies }}
       </div>
     </div>
   </div>
