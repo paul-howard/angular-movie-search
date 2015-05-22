@@ -1,24 +1,17 @@
-moviesApp.controller('searchController', ['$scope', '$http', '$log', function($scope, $http, $log) {
+moviesApp.controller('searchController', ['$scope', '$http', '$log', '$location', 'searchService', function($scope, $http, $log, $location, searchService) {
 
-  $scope.searchTerm = 'Mad Max';
+  $scope.searchTerm = 'Search';
 
-  // * Main Search Function
   $scope.search = function() {
-
-    var req = {
-      url: 'http://www.omdbapi.com',
-      params: {
-        s:    $scope.searchTerm
-      }
-    };
-
-    $http(req).success(function(data) {
-      $scope.movies = data;
-    });
-
+    searchService.search();
   };
 
-  // * Auto-search on load
-  $scope.search();
+  $scope.$watch('searchTerm', function() {
+    searchService.searchTerm = $scope.searchTerm;
+  });
+
+  if ($scope.searchTerm) {
+    searchService.search();
+  }
 
 }]);

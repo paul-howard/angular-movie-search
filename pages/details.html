@@ -1,22 +1,20 @@
-<div class="container" ng-controller="detailsController">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Movie Details</h1>
-      <table class="table">
-          <tr>
-            <td><strong>Title</strong></td>
-            <td>{{ title }}</td>
-            <td rowspan="3"><img ng-src="{{ poster }}" alt=""></td>
-          </tr>
-          <tr>
-            <td><strong>Year</strong></td>
-            <td>{{ year }}</td>
-          </tr>
-          <tr>
-            <td><strong>Plot</strong></td>
-            <td>{{ plot }}</td>
-          </tr>
-      </table>
-    </div>
+<div class="panel panel-primary" ng-controller="detailsController">
+  <div class="panel-heading">
+    <h2 class="panel-title">{{ title }}</h2>
   </div>
+  <table class="table">
+      <tr>
+        <td><strong>Title</strong></td>
+        <td>{{ title }}</td>
+        <td rowspan="3"><img ng-src="{{ poster }}" alt=""></td>
+      </tr>
+      <tr>
+        <td><strong>Year</strong></td>
+        <td>{{ year }}</td>
+      </tr>
+      <tr>
+        <td><strong>Plot</strong></td>
+        <td>{{ plot }}</td>
+      </tr>
+  </table>
 </div>
