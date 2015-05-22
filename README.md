@@ -11,6 +11,9 @@ This is a relatively straight-forward exercise in coding with AngularJS.
 ## TODO
 
 - use localStorage to keep/display search history
+- lose the hashbang with html5mode
+- return more data to detail view
+- use $resource to handle API queries
 - improve error handling
 - search by type (movie/tv)
 - integrate additional APIs (Amazon? Wikipedia?)
